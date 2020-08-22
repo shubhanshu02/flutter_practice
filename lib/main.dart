@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 void main() {
   runApp(MyApp());
 }
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           // closer together (more dense) than on mobile platforms.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: RegisterScreen(),//LoginScreen(),
+        home: FeedScreen() //RegisterScreen(),//LoginScreen(),
         );
   }
 }
@@ -37,14 +38,148 @@ class FeedScreen extends StatefulWidget {
 }
 
 class _FeedScreenState extends State<FeedScreen> {
+  int _currentIndex = 0;
+  PageController _pageController;
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('INSTICOMPAINTS'),),
+      appBar: AppBar(
+        title:
+            Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+          Text(
+            'InstiComplaints App',
+            style: TextStyle(color: Color(0xFFffeddb)),
+          ),
+        ]),
+        backgroundColor: Color(0xFF116466),
+        actions: <Widget>[
+          IconButton(
+            icon: SvgPicture.asset(
+              'assets/filter_alt.svg',
+              color: Color(0xFFFFCB9A),
+            ),
+            onPressed: () {},
+          )
+        ],
+      ),
+      backgroundColor: Colors.white,
+      body: Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+       
+        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+        
+          crossAxisAlignment: CrossAxisAlignment.center,
+          
+          children: <Widget>[
+            Container(
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
+              
+              height: 170,
+            ),
+            SizedBox(height: 4),
+            Container(
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
+              height: 170,
+            ),
+            SizedBox(height: 4),
+            Container(
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
+              height: 170,
+            ),
+            SizedBox(height: 4),
+            Container(
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
+              height: 170,
+            ),
+            SizedBox(height: 4),
+            Container(
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
+              height: 57,
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        onItemSelected: (index) {
+          setState(() => _currentIndex = index);
+          _pageController.jumpToPage(index);
+        },
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+              title: Text(
+                'Home',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.home,
+                color: Colors.white,
+              )),
+          BottomNavyBarItem(
+              title: Text(
+                'Requests',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.receipt,
+                color: Colors.white,
+              )),
+          BottomNavyBarItem(
+              title: Text(
+                'Notifications',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.white,
+              )),
+          BottomNavyBarItem(
+              title: Text(
+                'My Profile',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.account_circle,
+                color: Colors.white,
+              )),
+        ],
+        backgroundColor: Color(0xFF116466),
+      ),
     );
   }
 }
 
+class BottomnavBar extends StatefulWidget {
+  @override
+  _BottomnavBarState createState() => _BottomnavBarState();
+}
+
+class _BottomnavBarState extends State<BottomnavBar> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -258,7 +393,9 @@ class _LoginScreenState extends State<LoginScreen> {
               fontWeight: FontWeight.bold,
               color: Color(0xFF2C3531)),
         ),
-        SizedBox(height: 70,),
+        SizedBox(
+          height: 70,
+        ),
         ButtonTheme(
           minWidth: 300,
           height: 50,
