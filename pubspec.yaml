@@ -49,6 +49,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icon.png
+    - assets/icon.jpg
     - assets/filter_alt.svg
   # To add assets to your application, add an assets section, like this:
   # assets:

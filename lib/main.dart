@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           // closer together (more dense) than on mobile platforms.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: FeedScreen() //RegisterScreen(),//LoginScreen(),
+        home: RegisterScreen()//FeedScreen() //,//LoginScreen(),
         );
   }
 }
@@ -59,11 +60,11 @@ class _FeedScreenState extends State<FeedScreen> {
         title:
             Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
           Text(
-            'InstiComplaints App',
-            style: TextStyle(color: Color(0xFFffeddb)),
+            'InstiComplaint',
+            style: TextStyle(color: Colors.white),
           ),
         ]),
-        backgroundColor: Color(0xFF116466),
+        backgroundColor: Colors.blueGrey,
         actions: <Widget>[
           IconButton(
             icon: SvgPicture.asset(
@@ -71,51 +72,99 @@ class _FeedScreenState extends State<FeedScreen> {
               color: Color(0xFFFFCB9A),
             ),
             onPressed: () {},
-          )
+          ),
+         /* IconButton(
+            icon: Icons.bookmark,
+            onPressed: () {},
+          )*/
         ],
+        //leading: IconButton(icon: Icons.list,onPressed: () {},),
       ),
-      backgroundColor: Colors.white,
+      
       body: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-       
         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Column(
           mainAxisSize: MainAxisSize.max,
-        
           crossAxisAlignment: CrossAxisAlignment.center,
-          
           children: <Widget>[
             Container(
-              decoration:
-                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
-              
+              width: 380,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.rectangle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black
+                        .withOpacity(0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                    spreadRadius: 1,
+                    blurRadius: 0.5,
+
+                    //offset: Offset(0, 30), // changes position of shadow
+                  )
+                ],
+              ),
               height: 170,
             ),
-            SizedBox(height: 4),
+            SizedBox(height: 15),
             Container(
-              decoration:
-                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
+              width: 380,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.rectangle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black
+                        .withOpacity(0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                    spreadRadius: 1,
+                    blurRadius: 0.5,
+
+                    //offset: Offset(0, 30), // changes position of shadow
+                  )
+                ],
+              ),
               height: 170,
             ),
-            SizedBox(height: 4),
+            SizedBox(height: 15),
             Container(
-              decoration:
-                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
+              width: 380,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.rectangle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black
+                        .withOpacity(0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                    spreadRadius: 1,
+                    blurRadius: 0.5,
+
+                    //offset: Offset(0, 30), // changes position of shadow
+                  )
+                ],
+              ),
               height: 170,
             ),
-            SizedBox(height: 4),
+            SizedBox(height: 15),
             Container(
-              decoration:
-                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
+              width: 380,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.rectangle,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black
+                        .withOpacity(0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                    spreadRadius: 1,
+                    blurRadius: 0.5,
+
+                    //offset: Offset(0, 30), // changes position of shadow
+                  )
+                ],
+              ),
               height: 170,
             ),
-            SizedBox(height: 4),
-            Container(
-              decoration:
-                  BoxDecoration(border: Border.all(color: Colors.black),color: Colors.limeAccent),
-              height: 57,
-            ),
+            SizedBox(height: 15),
           ],
         ),
       ),
@@ -163,7 +212,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 color: Colors.white,
               )),
         ],
-        backgroundColor: Color(0xFF116466),
+        backgroundColor: Colors.blueGrey.withOpacity(0.2),
       ),
     );
   }
@@ -200,6 +249,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           Container(
             width: 200,
             height: 200,
+            /*
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 boxShadow: [
@@ -211,9 +261,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     //offset: Offset(0, 30), // changes position of shadow
                   )
                 ],
-                color: Color(0xFFD9B08C),
-                image: DecorationImage(
-                    image: AssetImage('assets/icon.png'), fit: BoxFit.contain)),
+//                color: Color(0xFFD9B08C),
+                image: DecorationImage(image: AssetImage('assets/icon.jpg'))
+            )*/child: CircleAvatar(
+              radius: 72.0,
+              backgroundColor: Colors.transparent,
+              backgroundImage: AssetImage('assets/icon.jpg'),
+            ),
           ),
         ]),
         SizedBox(
