@@ -47,10 +47,18 @@ class _FeedScreenState extends State<FeedScreen> {
     _pageController = PageController();
   }
 
+  int _selectedIndex = 0;
+
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
@@ -60,24 +68,42 @@ class _FeedScreenState extends State<FeedScreen> {
         title:
             Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
           Text(
-            'InstiComplaint',
+            'InstiComplaints',
             style: TextStyle(color: Colors.white),
           ),
         ]),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor:
+            Color(0xff005b80),//.withOpacity(0.7), // Color(0xff307cff),
         actions: <Widget>[
-          IconButton(
-            icon: SvgPicture.asset(
-              'assets/filter_alt.svg',
-              color: Color(0xFFFFCB9A),
+          Row(children: [
+            IconButton(
+              icon: Icon(
+                Icons.bookmark,
+                size: 20,
+              ),
+              onPressed: () {},
             ),
-            onPressed: () {},
-          ),
-          /* IconButton(
-            icon: Icons.bookmark,
-            onPressed: () {},
-          )*/
+            IconButton(
+              icon: SvgPicture.asset(
+                'assets/filter_alt.svg',
+                color: Colors.white,
+                height: 20,
+              ),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.search,
+                size: 20,
+              ),
+              onPressed: () {},
+            ),
+          ]),
         ],
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {},
+        ),
         //leading: IconButton(icon: Icons.list,onPressed: () {},),
       ),
       body: Container(
@@ -88,135 +114,144 @@ class _FeedScreenState extends State<FeedScreen> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: 380,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.rectangle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black
-                        .withOpacity(0.1), //Color(0xFFD9B08C).withOpacity(0.7),
-                    spreadRadius: 1,
-                    blurRadius: 0.5,
+            Material(
+              elevation: 5,
+              child: Container(
+                width: 380,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.rectangle,
+                  
+                  borderRadius: BorderRadius.circular(15.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(
+                          0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                      spreadRadius: 1,
+                      blurRadius: 0.5,
 
-                    //offset: Offset(0, 30), // changes position of shadow
-                  )
-                ],
+                      //offset: Offset(0, 30), // changes position of shadow
+                    )
+                  ],
+                ),
+                height: 170,
+                child: ComplaintBox(),
               ),
-              height: 170,
-              child: ComplaintBox(),
             ),
             SizedBox(height: 15),
-            Container(
-              width: 380,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.rectangle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black
-                        .withOpacity(0.1), //Color(0xFFD9B08C).withOpacity(0.7),
-                    spreadRadius: 1,
-                    blurRadius: 0.5,
+            Material(
+              elevation: 5,
+              child: Container(
+                width: 380,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.rectangle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(
+                          0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                      spreadRadius: 1,
+                      blurRadius: 0.5,
 
-                    //offset: Offset(0, 30), // changes position of shadow
-                  )
-                ],
+                      //offset: Offset(0, 30), // changes position of shadow
+                    )
+                  ],
+                ),
+                height: 170,
+                child: ComplaintBox(),
               ),
-              height: 170,
-              
-              child: ComplaintBox(),
             ),
             SizedBox(height: 15),
-            Container(
-              width: 380,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.rectangle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black
-                        .withOpacity(0.1), //Color(0xFFD9B08C).withOpacity(0.7),
-                    spreadRadius: 1,
-                    blurRadius: 0.5,
+            Material(
+              elevation: 5,
+              child: Container(
+                width: 380,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.rectangle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(
+                          0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                      spreadRadius: 1,
+                      blurRadius: 0.5,
 
-                    //offset: Offset(0, 30), // changes position of shadow
-                  )
-                ],
+                      //offset: Offset(0, 30), // changes position of shadow
+                    )
+                  ],
+                ),
+                height: 170,
+                child: ComplaintBox(),
               ),
-              height: 170,
-              child: ComplaintBox(),
             ),
             SizedBox(height: 15),
-            Container(
-              width: 380,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.rectangle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black
-                        .withOpacity(0.1), //Color(0xFFD9B08C).withOpacity(0.7),
-                    spreadRadius: 1,
-                    blurRadius: 0.5,
+            Material(
+              elevation: 5,
+              child: Container(
+                width: 380,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.rectangle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(
+                          0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                      spreadRadius: 1,
+                      blurRadius: 0.5,
 
-                    //offset: Offset(0, 30), // changes position of shadow
-                  )
-                ],
+                      //offset: Offset(0, 30), // changes position of shadow
+                    )
+                  ],
+                ),
+                height: 170,
+                child: ComplaintBox(),
               ),
-              height: 170,
-              child: ComplaintBox(),
             ),
             SizedBox(height: 15),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _currentIndex,
-        onItemSelected: (index) {
-          setState(() => _currentIndex = index);
-          _pageController.jumpToPage(index);
-        },
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-              title: Text(
-                'Home',
-                style: TextStyle(color: Colors.white),
-              ),
-              icon: Icon(
-                Icons.home,
-                color: Colors.white,
-              )),
-          BottomNavyBarItem(
-              title: Text(
-                'Requests',
-                style: TextStyle(color: Colors.white),
-              ),
-              icon: Icon(
-                Icons.receipt,
-                color: Colors.white,
-              )),
-          BottomNavyBarItem(
-              title: Text(
-                'Notifications',
-                style: TextStyle(color: Colors.white),
-              ),
-              icon: Icon(
-                Icons.notifications,
-                color: Colors.white,
-              )),
-          BottomNavyBarItem(
-              title: Text(
-                'My Profile',
-                style: TextStyle(color: Colors.white),
-              ),
-              icon: Icon(
-                Icons.account_circle,
-                color: Colors.white,
-              )),
-        ],
-        backgroundColor: Colors.blueGrey.withOpacity(0.2),
+      bottomNavigationBar: Container(
+        color: Colors.black,
+        child: SizedBox(
+          height: 69,
+          child: BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home,size: 30,),
+                  title: Text(
+                    'Home',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
+                /* BottomNavigationBarItem(
+                  icon: Icon(Icons.receipt),
+                  title: Text('Requests',
+  style: TextStyle(fontSize: 12),  ),
+                ),*/
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.notifications,size: 30,),
+                  title: Text(
+                    'Notifications',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(
+                      Icons.account_circle,size: 30,
+                    ),
+                    title: Text(
+                      'My Profile',
+                      style: TextStyle(fontSize: 12),
+                    )),
+              ],
+
+//backgroundColor: Colors.grey.withOpacity(0.1),
+
+              currentIndex: _selectedIndex,
+              selectedItemColor:  Color(0xff005b80),//Colors.deepOrange.withOpacity(0.7),
+              onTap: _onItemTapped),
+        ),
       ),
     );
   }
@@ -536,6 +571,13 @@ class ComplaintBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        
+                  shape: BoxShape.rectangle,
+                  
+                  borderRadius: BorderRadius.circular(15.0),
+     
+      ),
       padding: EdgeInsets.all(10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -543,13 +585,6 @@ class ComplaintBox extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(right: 16),
-                child: CircleAvatar(
-                  child: Text('SS'),
-                  radius: 20,
-                ),
-              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -579,9 +614,10 @@ class ComplaintBox extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-            Icon(Icons.calendar_today),
-            Text('  24-07-2020')
-          ],),
+              Icon(Icons.calendar_today),
+              Text('  24-07-2020')
+            ],
+          ),
           SizedBox(height: 4),
           Row(
             children: <Widget>[
@@ -597,7 +633,11 @@ class ComplaintBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               Text('Status:  '),
-              Text('Pending  ', style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,))
+              Text('Pending  ',
+                  style: TextStyle(
+                    color: Colors.red.withOpacity(0.5),
+                    fontWeight: FontWeight.bold,
+                  ))
             ],
           )
         ],
@@ -605,3 +645,53 @@ class ComplaintBox extends StatelessWidget {
     );
   }
 }
+
+/*
+BottomNavyBar(
+        selectedIndex: _currentIndex,
+        onItemSelected: (index) {
+          setState(() => _currentIndex = index);
+          _pageController.jumpToPage(index);
+        },
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+              activeColor: Colors.yellow,
+              title: Text(
+                'Home',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.home,
+                color: Colors.white,
+              )),
+          BottomNavyBarItem(
+              title: Text(
+                'Requests',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.receipt,
+                color: Colors.white,
+              )),
+          BottomNavyBarItem(
+              title: Text(
+                'Notifications',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.white,
+              )),
+          BottomNavyBarItem(
+              title: Text(
+                'My Profile',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.account_circle,
+                color: Colors.white,
+              )),
+        ],
+
+        backgroundColor: Color(0xff59cdff),
+      ),*/
