@@ -11,25 +11,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Colors.blue,
-          // This makes the visual density adapt to the platform that you run
-          // the app on. For desktop platforms, the controls will be smaller and
-          // closer together (more dense) than on mobile platforms.
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: RegisterScreen()//FeedScreen() //,//LoginScreen(),
-        );
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: Colors.blue,
+        // This makes the visual density adapt to the platform that you run
+        // the app on. For desktop platforms, the controls will be smaller and
+        // closer together (more dense) than on mobile platforms.
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: FeedScreen(), //RegisterScreen()//,//LoginScreen(),
+    );
   }
 }
 
@@ -73,14 +73,13 @@ class _FeedScreenState extends State<FeedScreen> {
             ),
             onPressed: () {},
           ),
-         /* IconButton(
+          /* IconButton(
             icon: Icons.bookmark,
             onPressed: () {},
           )*/
         ],
         //leading: IconButton(icon: Icons.list,onPressed: () {},),
       ),
-      
       body: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -106,6 +105,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 ],
               ),
               height: 170,
+              child: ComplaintBox(),
             ),
             SizedBox(height: 15),
             Container(
@@ -125,6 +125,8 @@ class _FeedScreenState extends State<FeedScreen> {
                 ],
               ),
               height: 170,
+              
+              child: ComplaintBox(),
             ),
             SizedBox(height: 15),
             Container(
@@ -144,6 +146,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 ],
               ),
               height: 170,
+              child: ComplaintBox(),
             ),
             SizedBox(height: 15),
             Container(
@@ -163,6 +166,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 ],
               ),
               height: 170,
+              child: ComplaintBox(),
             ),
             SizedBox(height: 15),
           ],
@@ -263,7 +267,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
 //                color: Color(0xFFD9B08C),
                 image: DecorationImage(image: AssetImage('assets/icon.jpg'))
-            )*/child: CircleAvatar(
+            )*/
+            child: CircleAvatar(
               radius: 72.0,
               backgroundColor: Colors.transparent,
               backgroundImage: AssetImage('assets/icon.jpg'),
@@ -523,6 +528,80 @@ class _LoginScreenState extends State<LoginScreen> {
         )
         */
       ]),
+    );
+  }
+}
+
+class ComplaintBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.only(right: 16),
+                child: CircleAvatar(
+                  child: Text('SS'),
+                  radius: 20,
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(children: [
+                    Text('Fan Not Working in C402',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18))
+                  ]),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        'Posted by ',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        'Raju Rastogi',
+                        style: TextStyle(
+                            fontSize: 12, fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
+          SizedBox(height: 7),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+            Icon(Icons.calendar_today),
+            Text('  24-07-2020')
+          ],),
+          SizedBox(height: 4),
+          Row(
+            children: <Widget>[
+              Flexible(
+                child: Text(
+                  'The fan was not found in working state as of 10th August 2020 when the students returned from their class',
+                  style: TextStyle(fontSize: 15),
+                ),
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Text('Status:  '),
+              Text('Pending  ', style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold,))
+            ],
+          )
+        ],
+      ),
     );
   }
 }
