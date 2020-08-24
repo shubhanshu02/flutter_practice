@@ -73,7 +73,7 @@ class _FeedScreenState extends State<FeedScreen> {
           ),
         ]),
         backgroundColor:
-            Color(0xff005b80),//.withOpacity(0.7), // Color(0xff307cff),
+            Color(0xff005b80), //.withOpacity(0.7), // Color(0xff307cff),
         actions: <Widget>[
           Row(children: [
             IconButton(
@@ -108,21 +108,19 @@ class _FeedScreenState extends State<FeedScreen> {
       ),
       body: Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        margin: EdgeInsets.symmetric(vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 7),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Material(
-              elevation: 5,
+              elevation: 4,
               child: Container(
-                width: 380,
+                width: 377,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.rectangle,
-                  
-                  borderRadius: BorderRadius.circular(15.0),
+                  borderRadius: BorderRadius.circular(11),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(
@@ -134,7 +132,55 @@ class _FeedScreenState extends State<FeedScreen> {
                     )
                   ],
                 ),
-                height: 170,
+                height: 200,
+                child: ComplaintBox(),
+              ),
+            ),
+            SizedBox(height: 15),
+            Material(
+              elevation: 4,
+              child: Container(
+                width: 377,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(11),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(
+                          0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                      spreadRadius: 1,
+                      blurRadius: 0.5,
+
+                      //offset: Offset(0, 30), // changes position of shadow
+                    )
+                  ],
+                ),
+                height: 200,
+                child: ComplaintBox(),
+              ),
+            ),
+            SizedBox(height: 15),
+            Material(
+              elevation: 4,
+              child: Container(
+                width: 377,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(11),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(
+                          0.1), //Color(0xFFD9B08C).withOpacity(0.7),
+                      spreadRadius: 1,
+                      blurRadius: 0.5,
+
+                      //offset: Offset(0, 30), // changes position of shadow
+                    )
+                  ],
+                ),
+                height: 200,
                 child: ComplaintBox(),
               ),
             ),
@@ -146,6 +192,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(11),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(
@@ -157,57 +204,65 @@ class _FeedScreenState extends State<FeedScreen> {
                     )
                   ],
                 ),
-                height: 170,
-                child: ComplaintBox(),
-              ),
-            ),
-            SizedBox(height: 15),
-            Material(
-              elevation: 5,
-              child: Container(
-                width: 380,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.rectangle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(
-                          0.1), //Color(0xFFD9B08C).withOpacity(0.7),
-                      spreadRadius: 1,
-                      blurRadius: 0.5,
-
-                      //offset: Offset(0, 30), // changes position of shadow
-                    )
-                  ],
+                height: 91.2,
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(children: [
+                                Text('Fan Not Working in C402',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18))
+                              ]),
+                              Row(
+                                children: <Widget>[
+                                  Text(
+                                    'Posted by ',
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                  Text(
+                                    'Raju Rastogi',
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 7),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Icon(Icons.calendar_today),
+                          Text(
+                            '  24-07-2020  ',
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.bold),
+                          ),
+                          Text('in '),
+                          Text(
+                            'C.V. Raman Hostel',
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                height: 170,
-                child: ComplaintBox(),
               ),
             ),
-            SizedBox(height: 15),
-            Material(
-              elevation: 5,
-              child: Container(
-                width: 380,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.rectangle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(
-                          0.1), //Color(0xFFD9B08C).withOpacity(0.7),
-                      spreadRadius: 1,
-                      blurRadius: 0.5,
-
-                      //offset: Offset(0, 30), // changes position of shadow
-                    )
-                  ],
-                ),
-                height: 170,
-                child: ComplaintBox(),
-              ),
-            ),
-            SizedBox(height: 15),
           ],
         ),
       ),
@@ -218,7 +273,10 @@ class _FeedScreenState extends State<FeedScreen> {
           child: BottomNavigationBar(
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home,size: 30,),
+                  icon: Icon(
+                    Icons.home,
+                    size: 30,
+                  ),
                   title: Text(
                     'Home',
                     style: TextStyle(fontSize: 12),
@@ -230,7 +288,10 @@ class _FeedScreenState extends State<FeedScreen> {
   style: TextStyle(fontSize: 12),  ),
                 ),*/
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications,size: 30,),
+                  icon: Icon(
+                    Icons.notifications,
+                    size: 30,
+                  ),
                   title: Text(
                     'Notifications',
                     style: TextStyle(fontSize: 12),
@@ -238,7 +299,8 @@ class _FeedScreenState extends State<FeedScreen> {
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.account_circle,size: 30,
+                      Icons.account_circle,
+                      size: 30,
                     ),
                     title: Text(
                       'My Profile',
@@ -249,7 +311,8 @@ class _FeedScreenState extends State<FeedScreen> {
 //backgroundColor: Colors.grey.withOpacity(0.1),
 
               currentIndex: _selectedIndex,
-              selectedItemColor:  Color(0xff005b80),//Colors.deepOrange.withOpacity(0.7),
+              selectedItemColor:
+                  Color(0xff005b80), //Colors.deepOrange.withOpacity(0.7),
               onTap: _onItemTapped),
         ),
       ),
@@ -571,13 +634,6 @@ class ComplaintBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        
-                  shape: BoxShape.rectangle,
-                  
-                  borderRadius: BorderRadius.circular(15.0),
-     
-      ),
       padding: EdgeInsets.all(10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -615,7 +671,15 @@ class ComplaintBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Icon(Icons.calendar_today),
-              Text('  24-07-2020')
+              Text(
+                '  24-07-2020  ',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              ),
+              Text('in '),
+              Text(
+                'C.V. Raman Hostel',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              )
             ],
           ),
           SizedBox(height: 4),
@@ -629,6 +693,7 @@ class ComplaintBox extends StatelessWidget {
               )
             ],
           ),
+          /*
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
@@ -638,6 +703,58 @@ class ComplaintBox extends StatelessWidget {
                     color: Colors.red.withOpacity(0.5),
                     fontWeight: FontWeight.bold,
                   ))
+            ],
+          ),*/
+          SizedBox(height: 7),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              SizedBox(
+                width: 70,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text('Pending  ',
+                        style: TextStyle(
+                          color: Colors.red.withOpacity(0.6),
+                          fontWeight: FontWeight.bold,
+                        )),
+                    Text(
+                      'Status',
+                      style: TextStyle(
+                        fontSize: 11,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(border: Border.symmetric(horizontal: BorderSide(width: 1 ))),
+                width: 130,
+                child: Column(
+                  children: <Widget>[
+                    Icon(Icons.bookmark_border),
+                    Text(
+                      'Bookmark',
+                      style: TextStyle(
+                        fontSize: 11,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Column(
+                children: <Widget>[
+                  Icon(Icons.share),
+                  Text(
+                    'Share',
+                    style: TextStyle(
+                      fontSize: 11,
+                    ),
+                  )
+                ],
+              )
             ],
           )
         ],
