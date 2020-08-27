@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:practice/register.dart';
+import 'dart:math';
 
 void main() {
   runApp(MyApp());
@@ -11,28 +13,84 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: FeedScreen(), //RegisterScreen()//,//LoginScreen(),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+          // This makes the visual density adapt to the platform that you run
+          // the app on. For desktop platforms, the controls will be smaller and
+          // closer together (more dense) than on mobile platforms.
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: Clsa());
   }
 }
 
+class Clsa extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Container(
+              constraints: BoxConstraints.expand(),
+              color: Colors.white,
+              child: RegisterPage(),
+            ),
+            ClipPath(
+                clipper: CurveClipper(),
+                child: Container(
+                  constraints: BoxConstraints.expand(),
+                  color: Colors.blue[900],
+                  child: Column(children: [
+                    SizedBox(height: MediaQuery.of(context).size.height / 16),
+                    Text(
+                      'Sign Up',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5
+                          .apply(color: Colors.white),
+                    )
+                  ]),
+                )),
+          ],
+        ));
+  }
+}
+
+class CurveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path()
+      // set the "current point"
+      ..addArc(Rect.fromLTWH(0, 0, size.width / 4, size.width / 4), pi, -1.57)
+      ..lineTo(3* size.width / 4, size.width / 8)
+      ..addArc(
+          Rect.fromLTWH(2 * size.width / 4, size.width / 2, size.width / 2,
+              size.width / 2),
+          pi + 1.57,
+          1.57)
+      ..lineTo(size.width, 0)
+      ..lineTo(0, 0)
+      ..lineTo(0, size.width / 4);
+    return path;
+  }
+  @override
+  bool shouldReclip(oldCliper) => false;
+}
+
+/*
 class FeedScreen extends StatefulWidget {
   @override
   _FeedScreenState createState() => _FeedScreenState();
@@ -812,3 +870,5 @@ BottomNavyBar(
 
         backgroundColor: Color(0xff59cdff),
       ),*/
+
+*/
