@@ -52,9 +52,9 @@ class Clsa extends StatelessWidget {
                 clipper: CurveClipper(),
                 child: Container(
                   constraints: BoxConstraints.expand(),
-                  color: Colors.blue[900],
+                  color: Color(0xFF181D3D),
                   child: Column(children: [
-                    SizedBox(height: MediaQuery.of(context).size.height / 16),
+                    SizedBox(height: MediaQuery.of(context).size.height / 8),
                     Text(
                       'Sign Up',
                       style: Theme.of(context)
@@ -74,18 +74,23 @@ class CurveClipper extends CustomClipper<Path> {
   Path getClip(Size size) {
     Path path = Path()
       // set the "current point"
-      ..addArc(Rect.fromLTWH(0, 0, size.width / 4, size.width / 4), pi, -1.57)
-      ..lineTo(3* size.width / 4, size.width / 8)
+      ..lineTo(0, size.width / 4)
+      ..addArc(
+          Rect.fromLTWH(0, size.width / 512, size.width / 2, size.width / 2),
+          pi,
+          -pi / 2)
+      ..lineTo(4 * size.width / 4, size.width / 2)
       ..addArc(
           Rect.fromLTWH(2 * size.width / 4, size.width / 2, size.width / 2,
               size.width / 2),
-          pi + 1.57,
+          3.14 + 1.57,
           1.57)
       ..lineTo(size.width, 0)
       ..lineTo(0, 0)
       ..lineTo(0, size.width / 4);
     return path;
   }
+
   @override
   bool shouldReclip(oldCliper) => false;
 }
