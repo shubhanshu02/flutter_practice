@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_svg/flutter_svg.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:practice/feed.dart';
 import 'package:practice/register.dart';
 import 'dart:math';
 
@@ -30,70 +31,49 @@ class MyApp extends StatelessWidget {
           // closer together (more dense) than on mobile platforms.
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: Clsa());
+        home: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: ComplaintBox(),
+            ),
+          ],
+        ));
   }
 }
 
 class Clsa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            Container(
-              constraints: BoxConstraints.expand(),
-              color: Colors.white,
-              child: RegisterPage(),
-            ),
-            ClipPath(
-                clipper: CurveClipper(),
-                child: Container(
-                  constraints: BoxConstraints.expand(),
-                  color: Color(0xFF181D3D),
-                  child: Column(children: [
-                    SizedBox(height: MediaQuery.of(context).size.height / 8),
-                    Text(
-                      'Sign Up',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5
-                          .apply(color: Colors.white),
-                    )
-                  ]),
-                )),
-          ],
-        ));
+    return Column(
+          children: [Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: 
+              ClipPath(
+                  clipper: CurveClipper(),
+                  child: Container(
+                    constraints: BoxConstraints.expand(),
+                    color: Color(0xFF181D3D),
+                    child: Column(children: [
+                      SizedBox(height: MediaQuery.of(context).size.height / 8),
+                      Text(
+                        'Sign Up',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline5
+                            .apply(color: Colors.white),
+                      )
+                    ]),
+                  )),
+      ),
+      RegisterPage()
+          ]
+    );
   }
 }
 
-class CurveClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path()
-      // set the "current point"
-      ..lineTo(0, size.width / 4)
-      ..addArc(
-          Rect.fromLTWH(0, size.width / 512, size.width / 2, size.width / 2),
-          pi,
-          -pi / 2)
-      ..lineTo(4 * size.width / 4, size.width / 2)
-      ..addArc(
-          Rect.fromLTWH(2 * size.width / 4, size.width / 2, size.width / 2,
-              size.width / 2),
-          3.14 + 1.57,
-          1.57)
-      ..lineTo(size.width, 0)
-      ..lineTo(0, 0)
-      ..lineTo(0, size.width / 4);
-    return path;
-  }
-
-  @override
-  bool shouldReclip(oldCliper) => false;
-}
 
 /*
 class FeedScreen extends StatefulWidget {
