@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(20),
-              child: ComplaintBox(),
+              child: RegisterPage(),
             ),
           ],
         ));
