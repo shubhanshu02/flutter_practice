@@ -46,34 +46,34 @@ class MyApp extends StatelessWidget {
 class Clsa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-          children: [Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: 
-              ClipPath(
-                  clipper: CurveClipper(),
-                  child: Container(
-                    constraints: BoxConstraints.expand(),
-                    color: Color(0xFF181D3D),
-                    child: Column(children: [
-                      SizedBox(height: MediaQuery.of(context).size.height / 8),
-                      Text(
-                        'Sign Up',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline5
-                            .apply(color: Colors.white),
-                      )
-                    ]),
-                  )),
+    double _width = MediaQuery.of(context).size.width;
+    double _height = MediaQuery.of(context).size.height;
+
+    return Column(children: [
+      Container(
+        width: _width,
+        height: _height,
+        child: ClipPath(
+            clipper: CurveClipper(),
+            child: Container(
+              constraints: BoxConstraints.expand(),
+              color: Color(0xFF181D3D),
+              child: Column(children: [
+                SizedBox(height: _height / 8),
+                Text(
+                  'Sign Up',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline5
+                      .apply(color: Colors.white),
+                )
+              ]),
+            )),
       ),
       RegisterPage()
-          ]
-    );
+    ]);
   }
 }
-
 
 /*
 class FeedScreen extends StatefulWidget {
